@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\junior.ferreira\.nuget\packages\microsoft.azure.cosmos\3.20.0\contentFiles\any\netstandard2.0\ThirdPartyNotice.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.35" />
+    <PackageReference Include="Dapper.ParameterExtensions" Version="2018.12.7.1" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.20.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Projeto.Base.CrossCutting.Configuration\Projeto.Base.CrossCutting.Configuration.csproj" />
+    <ProjectReference Include="..\Projeto.Base.Domain\Projeto.Base.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
