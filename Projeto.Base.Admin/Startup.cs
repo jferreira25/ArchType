@@ -1,5 +1,6 @@
 using AutoMapper;
 using FluentValidation;
+using FluentValidation.AspNetCore;
 using HealthChecks.UI.Client;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Projeto.Base.Admin.Filter;
 using Projeto.Base.Admin.Infrastructure;
 using Projeto.Base.Admin.Middlewares;
 using Projeto.Base.Domain.Commands.Authentication.CreateToken;
@@ -46,7 +48,9 @@ namespace Projeto.Base
 
             RegisterServices.InjectServices(services);
 
-            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            services
+                .AddMvc(options => options.Filters.Add(typeof(ApiValidationFilter)))
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateTokenCommand>());
 
             RegisterPublishers.InjectPublisher(services);
 
@@ -59,6 +63,8 @@ namespace Projeto.Base
             RegisterSubscribers.InjectSubscriber(services);
 
             RegisterHealthCheck.InjectHealth(services);
+
+          
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
