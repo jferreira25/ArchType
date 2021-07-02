@@ -1,6 +1,6 @@
 # MELHORIAS A SEREM IMPLEMENTADAS
 
-[ ] registrar dependencias como é feita no antigo archType
+[x] registrar dependencias como é feita no antigo archType
 
 [ ] positivo/negativo frameworks utilizados ?
 [ ] Apresentar oq o antigo tinha / novo tem .

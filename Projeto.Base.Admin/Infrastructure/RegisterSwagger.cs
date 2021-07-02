@@ -1,13 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Projeto.Base.Admin.Core;
 using Projeto.Base.Admin.Filter;
 using System.Collections.Generic;
 
 namespace Projeto.Base.Admin.Infrastructure
 {
-    public static class RegisterSwagger
+    internal class RegisterSwagger : IServiceRegistration
     {
-        public static void AddSwagger(IServiceCollection services)
+        public void RegisterAppServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddSwaggerGen(c =>
             {

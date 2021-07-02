@@ -1,15 +1,17 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Projeto.Base.Admin.Core;
 using Projeto.Base.CrossCutting.Configuration;
 
 namespace Projeto.Base.Admin.Infrastructure
 {
-    public static class RegisterHealthCheck
+    internal class RegisterHealthCheck : IServiceRegistration
     {
-        public static void InjectHealth(IServiceCollection services)
+        public void RegisterAppServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddHealthChecks()
-                         .AddSqlServer(AppSettings.Settings.Sqlconnections.ConnectionString)
-                         .AddAzureServiceBusQueue(AppSettings.Settings.ServiceBusSettings.LessonQueueSub.ConnectionString, AppSettings.Settings.ServiceBusSettings.LessonQueueSub.Name);
+                        .AddSqlServer(AppSettings.Settings.Sqlconnections.ConnectionString)
+                        .AddAzureServiceBusQueue(AppSettings.Settings.ServiceBusSettings.LessonQueueSub.ConnectionString, AppSettings.Settings.ServiceBusSettings.LessonQueueSub.Name);
         }
     }
 }
