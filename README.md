@@ -12,5 +12,5 @@
 [ ] redis
 [ ] docker file
 [ ] documentação explicando cada ponto (ex: services oq colocar dentro, infra.data oq colocar dentro) doc padronizar chamadas da classe abstrata
-[ ] melhorar httpRequest
+[x] melhorar httpRequest
 
