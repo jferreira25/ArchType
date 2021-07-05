@@ -24,6 +24,10 @@
 - Serilog
 - redis
 
+Vantagens da v2
+ - Ajuste no swagger para não precisar passar "bearer" em seu request
+ - Melhoria implementação httpRequest onde poderia dar problema de Http socket exception
+ - Melhor visualização para possiveis manutenções
 [ ] identity projeto
 [X] colocar filter validation antes de bater no controller ao invés de deixar no command
 [ ] log
