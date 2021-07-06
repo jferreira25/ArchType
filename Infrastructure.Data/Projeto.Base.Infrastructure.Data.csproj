@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Projeto.Base.CrossCutting.Configuration\Projeto.Base.CrossCutting.Configuration.csproj" />
-    <ProjectReference Include="..\Projeto.Base.Domain\Projeto.Base.Domain.csproj" />
+    <ProjectReference Include="..\CrossCutting.Configuration\Projeto.Base.CrossCutting.Configuration.csproj" />
+    <ProjectReference Include="..\Domain\Projeto.Base.Domain.csproj" />
   </ItemGroup>
 
 </Project>

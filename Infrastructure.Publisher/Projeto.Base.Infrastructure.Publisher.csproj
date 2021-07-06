@@ -6,11 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.2.0" />
+    <PackageReference Include="Microsoft.Azure.ServiceBus" Version="5.1.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Projeto.Base.CrossCutting.Configuration\Projeto.Base.CrossCutting.Configuration.csproj" />
-    <ProjectReference Include="..\Projeto.Base.Domain\Projeto.Base.Domain.csproj" />
+    <ProjectReference Include="..\CrossCutting.Configuration\Projeto.Base.CrossCutting.Configuration.csproj" />
   </ItemGroup>
 
 </Project>

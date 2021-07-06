@@ -13,7 +13,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Projeto.Base.Tests.Shared\Projeto.Base.Tests.Shared.csproj" />
+    <ProjectReference Include="..\Infrastructure.Data\Projeto.Base.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\Tests.Shared\Projeto.Base.Tests.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

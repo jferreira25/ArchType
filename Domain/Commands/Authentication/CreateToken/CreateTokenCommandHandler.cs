@@ -20,6 +20,7 @@ namespace Projeto.Base.Domain.Commands.Authentication.CreateToken
         private readonly ITesteRepository _testeRepository;
         private readonly RedisWrapper _redisWrapper;
         private readonly ILogger _logger;
+        private const string REDISKEY = "testejnr";
 
         public CreateTokenCommandHandler(
            IUserRepository userRepository,
@@ -42,9 +43,9 @@ namespace Projeto.Base.Domain.Commands.Authentication.CreateToken
         {
             _logger.Error("log de erro para teste de log");
 
-            _redisWrapper.Set<string>("testejnr", "testado");
+            _redisWrapper.Set<string>(REDISKEY, "testado");
 
-           var redis = _redisWrapper.Get<string>("testejnr");
+           var redis = _redisWrapper.Get<string>(REDISKEY);
 
             //utilizacao cosmos
             var example = new Entities.Cosmos.Exemplo() { Id = "12345", Name = "junior" };

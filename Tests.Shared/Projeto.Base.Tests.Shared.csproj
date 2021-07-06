@@ -10,7 +10,7 @@
     <PackageReference Include="AutoFixture" Version="4.11.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Projeto.Base.Domain\Projeto.Base.Domain.csproj" />
+    <ProjectReference Include="..\Domain\Projeto.Base.Domain.csproj" />
   </ItemGroup>
 
 </Project>

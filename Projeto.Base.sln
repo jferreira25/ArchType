@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Base.Admin", "Projeto.Base.Admin\Projeto.Base.Admin.csproj", "{D1F57F93-AC52-451D-9750-7640F32D3D81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Base.Admin", "Api\Projeto.Base.Admin.csproj", "{D1F57F93-AC52-451D-9750-7640F32D3D81}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{BC06A470-2C7A-441A-9A88-55C3D8155CA0}"
 EndProject
@@ -15,23 +15,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - CrossCutting", "4 - Cro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{076B5104-A761-47E7-8FD3-E23BF1BD7126}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Base.Domain", "Projeto.Base.Domain\Projeto.Base.Domain.csproj", "{D36CF894-18FF-4BB8-B69F-454782B4F917}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Projeto.Base.Domain.csproj", "{D36CF894-18FF-4BB8-B69F-454782B4F917}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Base.CrossCutting.Configuration", "Projeto.Base.CrossCutting.Configuration\Projeto.Base.CrossCutting.Configuration.csproj", "{377DC4DC-A3BE-4571-A69B-C665F18519CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossCutting.Configuration", "CrossCutting.Configuration\Projeto.Base.CrossCutting.Configuration.csproj", "{377DC4DC-A3BE-4571-A69B-C665F18519CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Base.Infrastructure.Data", "Projeto.Base.Infrastructure.Data\Projeto.Base.Infrastructure.Data.csproj", "{A9D4281A-D1E1-41EC-BB68-E3E5DC091441}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Data", "Infrastructure.Data\Projeto.Base.Infrastructure.Data.csproj", "{A9D4281A-D1E1-41EC-BB68-E3E5DC091441}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Base.Tests.Integration", "Projeto.Base.Tests.Integration\Projeto.Base.Tests.Integration.csproj", "{3498B672-9563-4949-88DD-2481070754F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Integration", "Tests.Integration\Projeto.Base.Tests.Integration.csproj", "{3498B672-9563-4949-88DD-2481070754F5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Base.Tests.Shared", "Projeto.Base.Tests.Shared\Projeto.Base.Tests.Shared.csproj", "{C139B40A-DCBD-4FA2-8836-C942DE95DDDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Shared", "Tests.Shared\Projeto.Base.Tests.Shared.csproj", "{C139B40A-DCBD-4FA2-8836-C942DE95DDDB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Base.Tests.Unity", "Projeto.Base.Tests.Unity\Projeto.Base.Tests.Unity.csproj", "{3199A33A-1D42-40C6-A6A0-5737ADAA0562}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Unity", "Tests.Unity\Projeto.Base.Tests.Unity.csproj", "{3199A33A-1D42-40C6-A6A0-5737ADAA0562}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Base.Infrastructure.Service", "Projeto.Base.Infrastructure.Service\Projeto.Base.Infrastructure.Service.csproj", "{8CF9A9A1-5B26-4F56-9D19-ACA3E51C8679}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Service", "Infrastructure.Service\Projeto.Base.Infrastructure.Service.csproj", "{8CF9A9A1-5B26-4F56-9D19-ACA3E51C8679}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projeto.Base.Infrastructure.Publisher", "Projeto.Base.Infrastructure.Publisher\Projeto.Base.Infrastructure.Publisher.csproj", "{9CEFF269-1914-4B84-BF0D-0B2034B639B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Publisher", "Infrastructure.Publisher\Projeto.Base.Infrastructure.Publisher.csproj", "{9CEFF269-1914-4B84-BF0D-0B2034B639B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projeto.Base.Subscriber", "Projeto.Base.Subscriber\Projeto.Base.Subscriber.csproj", "{8D706590-A800-4D7F-B2EF-23F80AAEDD25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Subscriber", "Infrastructure.Subscriber\Projeto.Base.Infrastructure.Subscriber.csproj", "{8D706590-A800-4D7F-B2EF-23F80AAEDD25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
