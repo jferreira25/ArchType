@@ -64,7 +64,7 @@ A proposta de estrutura é subdividida em 5 pastas
  
 ![estruturacao domain](archType_domain.png)
 
-Na estrutura do dominio temos nosso command onde possuimos nossa ação como no exemplo CreateToken e nele temos nosso comando e nosso handler (CreateTokenCommandHandler) 
+Na estrutura do dominio temos nosso command onde possuimos nossa ação como no exemplo CreateToken e nele temos nosso comando e nosso handler (CreateTokenCommandHandler) assim como nossa validação comando
 todas interfaces de banco de dados e services também seriam registrado em nosso 'domain'
 - Toda consulta feita em nossa aplicação ficaria na pasta de queries e baseado em contextos e ação ex: lessons > GetLessonsById
 
