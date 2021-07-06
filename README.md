@@ -35,7 +35,7 @@
  - Docker file
  
  
-## Conhendo sua estrutura
+## Conhecendo sua estrutura
 
 ![estruturacao de pastas](EstruturaGeral.PNG)
 ![estruturacao logica](archType.png)
