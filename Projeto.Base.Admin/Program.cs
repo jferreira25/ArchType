@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 
 namespace Projeto.Base
 {
@@ -8,9 +9,11 @@ namespace Projeto.Base
     {
         public static void Main(string[] args) =>
             BuildWebHost(args).Run();
+
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseSerilog(dispose: true)
                 .Build();
     }
 }

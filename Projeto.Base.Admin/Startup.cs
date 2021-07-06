@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Projeto.Base.Admin.Extensions;
 using Projeto.Base.Admin.Filter;
 using Projeto.Base.Admin.Middlewares;
 using Projeto.Base.Domain.Commands.Authentication.CreateToken;
 using Projeto.Base.Subscriber.LessonQueue;
+using Serilog;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
 
@@ -44,10 +46,13 @@ namespace Projeto.Base
             services.AddServicesInAssembly(Configuration);
 
             services.AddHttpClient();
+
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddSerilog();
+
             app.UseSwagger();
 
             if (env.IsDevelopment())
@@ -66,8 +71,7 @@ namespace Projeto.Base
             });
 
             app.UseRouting();
-
-             app.UseAuthenticationMiddleware();
+            app.UseAuthenticationMiddleware();
            // app.UseAuthentication();
 
             //Adds authorization middleware to the pipeline to make sure the Api endpoint cannot be accessed by anonymous clients

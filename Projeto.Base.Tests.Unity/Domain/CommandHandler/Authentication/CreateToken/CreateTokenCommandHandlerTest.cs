@@ -6,6 +6,7 @@ using Projeto.Base.Domain.Services.Redis;
 using Projeto.Base.Infrastructure.Publisher.LessonQueue;
 using Projeto.Base.Tests.Shared.Mock.CommandHandler.Commands.Authentication.CreateToken;
 using Projeto.Base.Tests.Shared.Mock.Infrastructure.Database.Sql;
+using Serilog;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,7 +19,8 @@ namespace Projeto.Base.Tests.Unity.Domain.CommandHandler.Authentication.CreateTo
                new Mock<LessonQueuePublisher>().Object,
                new Mock<LessonTopicPublisher>().Object,
                new Mock<ITesteRepository>().Object,
-               new Mock<RedisWrapper>().Object
+               new Mock<RedisWrapper>().Object,
+               new Mock<ILogger>().Object
         );
 
         [SetUp]

@@ -5,6 +5,7 @@ using Projeto.Base.Domain.Interfaces.Sql;
 using Projeto.Base.Domain.Publishers;
 using Projeto.Base.Domain.Services.Redis;
 using Projeto.Base.Infrastructure.Publisher.LessonQueue;
+using Serilog;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,13 +19,15 @@ namespace Projeto.Base.Domain.Commands.Authentication.CreateToken
         private readonly LessonTopicPublisher _lessonTopicPublisher;
         private readonly ITesteRepository _testeRepository;
         private readonly RedisWrapper _redisWrapper;
+        private readonly ILogger _logger;
 
         public CreateTokenCommandHandler(
            IUserRepository userRepository,
            LessonQueuePublisher serviceBusSender,
            LessonTopicPublisher lessonTopicPublisher,
             ITesteRepository testeRepository,
-            RedisWrapper redisWrapper
+            RedisWrapper redisWrapper,
+            ILogger logger
             )
         {
             _userRepository = userRepository;
@@ -32,11 +35,13 @@ namespace Projeto.Base.Domain.Commands.Authentication.CreateToken
             _lessonTopicPublisher = lessonTopicPublisher;
             _testeRepository = testeRepository;
             _redisWrapper = redisWrapper;
+            _logger = logger;
         }
 
         public async Task<CreateTokenCommandResponse> Handle(CreateTokenCommand request, CancellationToken cancellationToken)
         {
-            
+            _logger.Error("log de erro para teste de log");
+
             _redisWrapper.Set<string>("testejnr", "testado");
 
            var redis = _redisWrapper.Get<string>("testejnr");
