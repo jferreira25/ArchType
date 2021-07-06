@@ -7,11 +7,14 @@ namespace Projeto.Base.CrossCutting.Configuration.AppModels
         [JsonProperty("lessonQueuePub")]
         public AzureServicePubQueueSettings LessonQueuePub { get; set; }
 
+
         [JsonProperty("lessonTopicPub")]
         public AzureServicePubTopicSettings LessonTopicPub { get; set; }
 
+
         [JsonProperty("lessonQueueSub")]
         public AzureServiceSubQueueSettings LessonQueueSub { get; set; }
+
 
         [JsonProperty("lessonTopicQueueSub")]
         public AzureServiceTopicQueueSettings LessonTopicQueueSub { get; set; }
@@ -21,6 +24,7 @@ namespace Projeto.Base.CrossCutting.Configuration.AppModels
     {
         [JsonProperty("name")]
         public string Name { get; set; }
+
 
         [JsonProperty("connectionString")]
         public string ConnectionString { get; set; }
@@ -32,6 +36,7 @@ namespace Projeto.Base.CrossCutting.Configuration.AppModels
         [JsonProperty("maxConcurrentCalls")]
         public int MaxConcurrentCalls { get; set; }
 
+
         [JsonProperty("autoComplete")]
         public bool AutoComplete { get; set; }
 
@@ -42,8 +47,10 @@ namespace Projeto.Base.CrossCutting.Configuration.AppModels
         [JsonProperty("maxConcurrentCalls")]
         public int MaxConcurrentCalls { get; set; }
 
+
         [JsonProperty("autoComplete")]
         public bool AutoComplete { get; set; }
+
 
         [JsonProperty("topicName")]
         public string TopicName { get; set; }
@@ -53,6 +60,7 @@ namespace Projeto.Base.CrossCutting.Configuration.AppModels
     {
         [JsonProperty("topicName")]
         public string TopicName { get; set; }
+
 
         [JsonProperty("connectionString")]
         public string ConnectionString { get; set; }
