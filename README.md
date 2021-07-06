@@ -30,7 +30,6 @@
  
  ## Implementações a serem feitas
  
- - Redis
  - Serilog
  - Docker file
  
@@ -41,7 +40,7 @@
 ![estruturacao logica](archType.png)
 
 A proposta de estrutura é subdividida em 5 pastas
-1. [Presentation](#camadapresentation) : onde de fato fica nossa aplicação seja ela api/function/windows service...
+1. Presentation : onde de fato fica nossa aplicação seja ela api/function/windows service...
 2. Domain : Toda a regra de negócio fica desacoplada nessa sessão, tendo nossos patterns cqrs/ddd/solid
 3. Infrastructure: Toda comunicação externa  está associada a nossa infra seja elas:
 	- banco de dados (não relacional ou relacional)

@@ -36,6 +36,7 @@ namespace Projeto.Base.Domain.Commands.Authentication.CreateToken
 
         public async Task<CreateTokenCommandResponse> Handle(CreateTokenCommand request, CancellationToken cancellationToken)
         {
+            
             _redisWrapper.Set<string>("testejnr", "testado");
 
            var redis = _redisWrapper.Get<string>("testejnr");
