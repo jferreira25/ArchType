@@ -1,9 +1,9 @@
-﻿using Projeto.Base.CrossCutting.Configuration;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Projeto.Base.CrossCutting.Configuration;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Security.Claims;
 
 namespace Projeto.Base.Admin.Core
 {
@@ -18,18 +18,28 @@ namespace Projeto.Base.Admin.Core
                 if (!(tokenHandler.ReadToken(token) is JwtSecurityToken))
                     return false;
 
-                var symmetricKey = Convert.FromBase64String(AppSettings.Settings.JwtTokenSettings.SecretKey);
-
-                var validationParameters = new TokenValidationParameters
+                var jwtBearerOptions = new JwtBearerOptions()
                 {
-                    RequireExpirationTime = true,
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    IssuerSigningKey = new SymmetricSecurityKey(symmetricKey)
+                    Authority = AppSettings.Settings.JwtTokenSettings.Authority,
+                    Audience = AppSettings.Settings.JwtTokenSettings.Audience,
+                    TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = false,
+                        SignatureValidator = delegate (string token, TokenValidationParameters parameters)
+                        {
+                            return new JwtSecurityToken(token);
+                        }
+                    }
                 };
 
-                var principal = tokenHandler.ValidateToken(token, validationParameters, out var _);
-                return principal != null;
+                var principal = tokenHandler.ValidateToken(token, jwtBearerOptions.TokenValidationParameters, out var _);
+                
+                var containsClaim = GetClaim(token, AppSettings.Settings.JwtTokenSettings.ValidateClaimToken);
+
+                return principal != null && containsClaim != null;
             }
             catch (Exception ex)
             {
@@ -37,25 +47,13 @@ namespace Projeto.Base.Admin.Core
                 return false;
             }
         }
-
-        public static string GetGuidToken(string token)
+        public static string GetClaim(string token, string claimType)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var canReadToken = tokenHandler.CanReadToken(token);
-            if (!canReadToken)
-                return null;
+            var securityToken = tokenHandler.ReadToken(token) as JwtSecurityToken;
 
-            var validationParameters = new TokenValidationParameters()
-            {
-                RequireExpirationTime = true,
-                ValidateIssuer = false,
-                ValidateAudience = false,
-                IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(AppSettings.Settings.JwtTokenSettings.SecretKey))
-            };
-
-            var principal = tokenHandler.ValidateToken(token, validationParameters, out _);
-
-            return principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Authentication)?.Value;
+            var stringClaimValue = securityToken.Claims.First(claim => claim.Type == claimType).Value;
+            return stringClaimValue;
         }
     }
 }

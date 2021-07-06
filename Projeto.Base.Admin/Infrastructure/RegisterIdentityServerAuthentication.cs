@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using Projeto.Base.CrossCutting.Configuration;
 
 namespace Projeto.Base.Admin.Infrastructure
 {
@@ -18,22 +19,9 @@ namespace Projeto.Base.Admin.Infrastructure
           
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
             services
-                .AddAuthorization(GetAuthorizationConfig())
+                .AddAuthorization()
                 .AddAuthentication(GetAuthenticationConfig())
                 .AddJwtBearer(GetJwtConfig());
-        }
-        private static Action<AuthorizationOptions> GetAuthorizationConfig()
-        {
-            return options =>
-            {
-                options
-                    .AddPolicy("AuthorizationPolicy",
-                                policy =>
-                                {
-                                    policy.AuthenticationSchemes.Add(JwtBearerDefaults.AuthenticationScheme);
-                                    policy.RequireClaim("scope", "CadastroCepApi.ConsultaCep");
-                                });
-            };
         }
 
         private static Action<AuthenticationOptions> GetAuthenticationConfig()
@@ -49,8 +37,8 @@ namespace Projeto.Base.Admin.Infrastructure
         {
             return jwtBearerOptions =>
             {
-                jwtBearerOptions.Authority = "https://qa-wa-segurancaidentityserver4.azurewebsites.net";
-                jwtBearerOptions.Audience = "ApiCadastroCep";
+                jwtBearerOptions.Authority = AppSettings.Settings.JwtTokenSettings.Authority;
+                jwtBearerOptions.Audience = AppSettings.Settings.JwtTokenSettings.Audience;
                 jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = false,

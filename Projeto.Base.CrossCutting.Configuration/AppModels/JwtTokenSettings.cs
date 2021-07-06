@@ -4,13 +4,16 @@ namespace Projeto.Base.CrossCutting.Configuration.AppModels
 {
     public class JwtTokenSettings
     {
-        [JsonProperty("issuer")]
-        public string Issuer { get; set; }
+        [JsonProperty("authority")]
+        public string Authority { get; set; }
 
-        [JsonProperty("expiration")]
-        public int Expiration { get; set; }
+        [JsonProperty("audience")]
+        public string Audience { get; set; }
 
-        [JsonProperty("secretKey")]
-        public string SecretKey { get; set; }
+        [JsonProperty("scope")]
+        public string Scope { get; set; }
+
+        [JsonProperty("validateClaimToken")]
+        public string ValidateClaimToken { get; set; }
     }
 }

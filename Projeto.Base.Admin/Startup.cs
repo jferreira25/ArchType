@@ -67,7 +67,12 @@ namespace Projeto.Base
             });
 
             app.UseRouting();
-            app.UseAuthenticationMiddleware();
+
+             app.UseAuthenticationMiddleware();
+           // app.UseAuthentication();
+
+            //Adds authorization middleware to the pipeline to make sure the Api endpoint cannot be accessed by anonymous clients
+           // app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -12,25 +12,26 @@ namespace Projeto.Base.Domain.Tools
     {
         public string GenerateToken(string login)
         {
-            var symmetricKey = new SymmetricSecurityKey(Convert.FromBase64String(AppSettings.Settings.JwtTokenSettings.SecretKey));
-            var now = DateTime.UtcNow;
-            var claims = new Claim[]
-            {
-                new Claim(ClaimTypes.Authentication, login),
-                new Claim(ClaimTypes.Role, "1"),
-                new Claim(JwtRegisteredClaimNames.Email, login),
-                
-            };
+            //var symmetricKey = new SymmetricSecurityKey(Convert.FromBase64String(AppSettings.Settings.JwtTokenSettings.SecretKey));
+            //var now = DateTime.UtcNow;
+            //var claims = new Claim[]
+            //{
+            //    new Claim(ClaimTypes.Authentication, login),
+            //    new Claim(ClaimTypes.Role, "1"),
+            //    new Claim(JwtRegisteredClaimNames.Email, login),
 
-            var tokenSpecifications = new JwtSecurityToken(
-                    AppSettings.Settings.JwtTokenSettings.Issuer,
-                    null,
-                    claims,
-                    now,
-                    now.AddMinutes(AppSettings.Settings.JwtTokenSettings.Expiration),
-                    new SigningCredentials(symmetricKey, SecurityAlgorithms.HmacSha256));
+            //};
 
-            return new JwtSecurityTokenHandler().WriteToken(tokenSpecifications);
+            //var tokenSpecifications = new JwtSecurityToken(
+            //        AppSettings.Settings.JwtTokenSettings.Issuer,
+            //        null,
+            //        claims,
+            //        now,
+            //        now.AddMinutes(AppSettings.Settings.JwtTokenSettings.Expiration),
+            //        new SigningCredentials(symmetricKey, SecurityAlgorithms.HmacSha256));
+
+            //return new JwtSecurityTokenHandler().WriteToken(tokenSpecifications);
+            return string.Empty;
         }
     }
 }
