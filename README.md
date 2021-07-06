@@ -1,10 +1,12 @@
+
 #ArchType V2
-**O que já existe ?**
+
+##O que já existe ?
  - Dapper
  - FluentValidation
  - IdentityServer 4
 
-**O que há de novo **
+##O que há de novo
 
  - Arquitetura desacoplada utilizando conceitos ddd/cqrs 
  - Melhorias Swagger
@@ -16,13 +18,13 @@
  - Melhoria implementação httpRequest onde poderia dar problema de Http socket exception
  - Ajuste no swagger para não precisar passar "bearer" em seu request deixando requisições padronizadas
  
- **Vantagens**
+ ##Vantagens
  
  - Response padrão para todas futuras aplicações
  - Melhor visualização para possiveis manutenções
  - Menor acoplamento pensando em sistemas distribuidos além de utilizar redis ao invés de memoryCache
  
- **Implementações A serem feitas**
+ ##Implementações a serem feitas
  
  - Redis
  - Serilog
