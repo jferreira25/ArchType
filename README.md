@@ -13,14 +13,13 @@
 ### O que há de novo
 
  - Arquitetura desacoplada utilizando conceitos ddd/cqrs 
- - Melhorias Swagger
+ - Melhorias Swagger  para não precisar passar "bearer" em seu request deixando requisições padronizadas
  - Ideia de packages para ter apenas oque será usado ex: banco oracle / sql/cosmos - mensageria service bus
  - Testes de unidade xUnit com AAA (Arrange, Act, Assert)
  - Moq
  - Melhoria Serilog
  - Redis
  - Melhoria implementação httpRequest onde poderia dar problema de Http socket exception
- - Ajuste no swagger para não precisar passar "bearer" em seu request deixando requisições padronizadas
  
  ## Vantagens
  
