@@ -11,6 +11,7 @@
 	- FluentValidation
 	- IdentityServer 4
 	- Swagger
+	- Moq
 - Novo:
  - Arquitetura desacoplada utilizando conceitos ddd/cqrs
  - Mediator
@@ -18,10 +19,11 @@
  - Swagger
  - FluentValidation
  - Ideia de packages para ter apenas oque será usado ex: banco oracle / sql/cosmos - mensageria service bus
- - Testes de unidade xUnit
+ - Testes de unidade xUnit com AAA (Arrange, Act, Assert)
+ - Moq
  ---para implementar---
 - IdentityServer 4
-- Serilog
+- Serilog -> qlqr coisa olhar https://conectcar.visualstudio.com/Canais%20Externos/_git/Itau.PedidoTag.API?path=%2FConectcar.Itau.Api%2FConectcar.Itau.Api%2Fappsettings.json
 - redis
 
 Vantagens da v2
