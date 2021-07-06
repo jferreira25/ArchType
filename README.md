@@ -1,43 +1,48 @@
-# MELHORIAS A SEREM IMPLEMENTADAS
-
-[x] registrar dependencias como é feita no antigo archType<br>
-
-[ ] positivo/negativo frameworks utilizados ?<br>
-[ ] Apresentar oq o antigo tinha / novo tem .<br>
- - Antigo:<br>
-	- Arquitetura com alto grau de  acoplamento<br>
-	- Serilog<br>
-	- Dapper
-	- FluentValidation
-	- IdentityServer 4
-	- Swagger
-	- Moq
-- Novo:
- - Arquitetura desacoplada utilizando conceitos ddd/cqrs <br>
- - Mediator<br>
- - Dapper<br>
- - Swagger<br>
+#ArchType V2
+**O que já existe ?**
+ - Dapper
  - FluentValidation
- - Ideia de packages para ter apenas oque será usado ex: banco oracle / sql/cosmos - mensageria service bus<br>
+ - IdentityServer 4
+
+**O que há de novo **
+
+ - Arquitetura desacoplada utilizando conceitos ddd/cqrs 
+ - Melhorias Swagger
+ - Ideia de packages para ter apenas oque será usado ex: banco oracle / sql/cosmos - mensageria service bus
  - Testes de unidade xUnit com AAA (Arrange, Act, Assert)<br>
- - Moq<br>
- - IdentityServer 4<br>
- ---para implementar---<br>
-- Serilog -> qlqr coisa olhar https://conectcar.visualstudio.com/Canais%20Externos/_git/Itau.PedidoTag.API?path=%2FConectcar.Itau.Api%2FConectcar.Itau.Api%2Fappsettings.json<br>
-- redis<br>
+ - Moq
+ - Melhoria Serilog
+ - Redis
+ - Melhoria implementação httpRequest onde poderia dar problema de Http socket exception
+ - Ajuste no swagger para não precisar passar "bearer" em seu request deixando requisições padronizadas
+ 
+ **Vantagens**
+ 
+ - Response padrão para todas futuras aplicações
+ - Melhor visualização para possiveis manutenções
+ - Menor acoplamento pensando em sistemas distribuidos além de utilizar redis ao invés de memoryCache
+ 
+ **Implementações A serem feitas**
+ 
+ - Redis
+ - Serilog
+ - Docker file
+ 
+ 
+##Conhendo sua estrutura
 
-Vantagens da v2<br>
- - Ajuste no swagger para não precisar passar "bearer" em seu request<br>
- - Melhoria implementação httpRequest onde poderia dar problema de Http socket exception<br>
- - Melhor visualização para possiveis manutenções<br>
-[x] identity projeto<br>
-[x] colocar filter validation antes de bater no controller ao invés de deixar no command<br>
-[x] melhorar httpRequest<br>
+![alt text](EstruturaGeral.png)
 
-[ ] log<br>
-[ ] redis<br>
-[ ] docker file<br>
-[ ] documentação explicando cada ponto (ex: services oq colocar dentro, infra.data oq colocar dentro) doc padronizar chamadas da classe abstrata<br>
-
-
-
+A proposta de estrutura é subdividida em 5 pastas
+1 - Presentation : onde de fato fica nossa aplicação seja ela api/function/windows service...
+2 - Domain : Toda a regra de negócio fica desacoplada nessa sessão, tendo nossos patterns cqrs/ddd/solid
+3 - Infrastructure: Toda comunicação externa  está associada a nossa infra seja elas:
+ - banco de dados (não relacional ou relacional)
+ - serviços externos como chamada api de CEP
+ - consumir ou publicar eventos (serviceBus)
+4 - Crosscutting: toda dependencia que poderá ser  usado em qualquer uma das pastas ficaria acoplada diretamente na nossa pasta cross 
+ex:
+ - AppSettings consumida em toda parte da aplicação
+ - Extensios
+ - Transaction
+ 5 - Tests: nela é contida nossos testes de unidade integração e compartilhamento
