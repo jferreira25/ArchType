@@ -59,9 +59,9 @@ A proposta de estrutura é subdividida em 5 pastas
 
 ![estruturacao Presentation](archType_presentation.png)
 
-1º A proposta da v2 seria ter responses padronizados. Na imagem 1 todos os controllers extendendo do baseController para seus responses.
-2º na pasta extensions toda extensão que será APENAS da api podemos cadastrar nessa pasta
-3º na pasta de infrastructure onde registraremos toda nossa dependencia
+1. A proposta da v2 seria ter responses padronizados. Na imagem 1 todos os controllers extendendo do baseController para seus responses.
+2. na pasta extensions toda extensão que será APENAS da api podemos cadastrar nessa pasta
+3. na pasta de infrastructure onde registraremos toda nossa dependencia
  
 ![estruturacao domain](archType_domain.png)
 
