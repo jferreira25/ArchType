@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Projeto.Base.Domain.Commands.Authentication.CreateToken;
 using Projeto.Base.Domain.Interfaces.Cosmos;
+using Projeto.Base.Domain.Services.Redis;
 using Projeto.Base.Infrastructure.Publisher.LessonQueue;
 using Projeto.Base.Tests.Shared.Mock.CommandHandler.Commands.Authentication.CreateToken;
 using Projeto.Base.Tests.Shared.Mock.Infrastructure.Database.Sql;
@@ -16,7 +17,8 @@ namespace Projeto.Base.Tests.Unity.Domain.CommandHandler.Authentication.CreateTo
                new UsersRepositoryMock().GetDefaultInstance().Object,
                new Mock<LessonQueuePublisher>().Object,
                new Mock<LessonTopicPublisher>().Object,
-               new Mock<ITesteRepository>().Object
+               new Mock<ITesteRepository>().Object,
+               new Mock<RedisWrapper>().Object
         );
 
         [SetUp]

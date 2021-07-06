@@ -7,7 +7,7 @@ namespace Projeto.Base.CrossCutting.Configuration
     {
         public static AppSettings Settings => AppFileConfiguration<AppSettings>.Settings;
 
-        [JsonProperty("Sqlconnections")]
+        [JsonProperty("sqlconnections")]
         public SqlConnection Sqlconnections { get; set; }
         [JsonProperty("jwtTokenSettings")]
         public JwtTokenSettings JwtTokenSettings { get; set; }
@@ -17,5 +17,9 @@ namespace Projeto.Base.CrossCutting.Configuration
 
         [JsonProperty("cosmos")]
         public CosmosConnection Cosmos { get; set; }
+
+
+        [JsonProperty("redis")]
+        public RedisSettings Redis { get; set; }
     }
 }

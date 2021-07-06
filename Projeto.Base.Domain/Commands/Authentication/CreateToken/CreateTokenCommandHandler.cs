@@ -3,6 +3,7 @@ using Projeto.Base.CrossCutting.Configuration.Exceptions;
 using Projeto.Base.Domain.Interfaces.Cosmos;
 using Projeto.Base.Domain.Interfaces.Sql;
 using Projeto.Base.Domain.Publishers;
+using Projeto.Base.Domain.Services.Redis;
 using Projeto.Base.Infrastructure.Publisher.LessonQueue;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,21 +17,29 @@ namespace Projeto.Base.Domain.Commands.Authentication.CreateToken
         private LessonQueuePublisher _serviceBusSender;
         private readonly LessonTopicPublisher _lessonTopicPublisher;
         private readonly ITesteRepository _testeRepository;
+        private readonly RedisWrapper _redisWrapper;
+
         public CreateTokenCommandHandler(
            IUserRepository userRepository,
            LessonQueuePublisher serviceBusSender,
            LessonTopicPublisher lessonTopicPublisher,
-            ITesteRepository testeRepository
+            ITesteRepository testeRepository,
+            RedisWrapper redisWrapper
             )
         {
             _userRepository = userRepository;
             _serviceBusSender = serviceBusSender;
             _lessonTopicPublisher = lessonTopicPublisher;
             _testeRepository = testeRepository;
+            _redisWrapper = redisWrapper;
         }
 
         public async Task<CreateTokenCommandResponse> Handle(CreateTokenCommand request, CancellationToken cancellationToken)
         {
+            _redisWrapper.Set<string>("testejnr", "testado");
+
+           var redis = _redisWrapper.Get<string>("testejnr");
+
             //utilizacao cosmos
             var example = new Entities.Cosmos.Exemplo() { Id = "12345", Name = "junior" };
 

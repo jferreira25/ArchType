@@ -11,10 +11,13 @@ using Microsoft.Extensions.Hosting;
 using Projeto.Base.Admin.Extensions;
 using Projeto.Base.Admin.Filter;
 using Projeto.Base.Admin.Middlewares;
+using Projeto.Base.CrossCutting.Configuration;
 using Projeto.Base.Domain.Commands.Authentication.CreateToken;
+using Projeto.Base.Domain.Services.Redis;
 using Projeto.Base.Subscriber.LessonQueue;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
+using StackExchange.Redis;
 
 namespace Projeto.Base
 {
@@ -45,6 +48,11 @@ namespace Projeto.Base
             services.AddServicesInAssembly(Configuration);
 
             services.AddHttpClient();
+
+            services.AddSingleton<RedisWrapper>();
+            services.AddSingleton(x =>
+            ConnectionMultiplexer.Connect(
+                AppSettings.Settings.Redis.ConnectionString).GetDatabase());
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
