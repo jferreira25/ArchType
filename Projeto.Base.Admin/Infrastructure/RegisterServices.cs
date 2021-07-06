@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Projeto.Base.Admin.Core;
-using Projeto.Base.Domain.Interfaces.Tools;
 using Projeto.Base.Domain.Services.Xlsx;
-using Projeto.Base.Domain.Tools;
 using Projeto.Base.Infrastructure.Service.ServiceHandler;
 
 namespace Projeto.Base.Admin.Infrastructure
@@ -13,7 +11,6 @@ namespace Projeto.Base.Admin.Infrastructure
         public void RegisterAppServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped(typeof(ISheetsService), typeof(SheetsService));
-            services.AddScoped(typeof(IJwtTokenGenerator), typeof(JwtTokenGenerator));
         }
     }
 }

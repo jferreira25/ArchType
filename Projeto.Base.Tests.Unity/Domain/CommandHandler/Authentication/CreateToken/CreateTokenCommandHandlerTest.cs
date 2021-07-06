@@ -5,7 +5,6 @@ using Projeto.Base.Domain.Interfaces.Cosmos;
 using Projeto.Base.Infrastructure.Publisher.LessonQueue;
 using Projeto.Base.Tests.Shared.Mock.CommandHandler.Commands.Authentication.CreateToken;
 using Projeto.Base.Tests.Shared.Mock.Infrastructure.Database.Sql;
-using Projeto.Base.Tests.Shared.Mock.Tools;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,7 +13,6 @@ namespace Projeto.Base.Tests.Unity.Domain.CommandHandler.Authentication.CreateTo
     public class CreateTokenCommandHandlerTest
     {
         protected CreateTokenCommandHandler EstablishContext() => new CreateTokenCommandHandler(
-               new JwtTokenGeneratorMock().GetDefaultInstance().Object,
                new UsersRepositoryMock().GetDefaultInstance().Object,
                new Mock<LessonQueuePublisher>().Object,
                new Mock<LessonTopicPublisher>().Object,

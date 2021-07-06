@@ -2,7 +2,6 @@
 using Projeto.Base.CrossCutting.Configuration.Exceptions;
 using Projeto.Base.Domain.Interfaces.Cosmos;
 using Projeto.Base.Domain.Interfaces.Sql;
-using Projeto.Base.Domain.Interfaces.Tools;
 using Projeto.Base.Domain.Publishers;
 using Projeto.Base.Infrastructure.Publisher.LessonQueue;
 using System.Threading;
@@ -12,20 +11,18 @@ namespace Projeto.Base.Domain.Commands.Authentication.CreateToken
 {
     public class CreateTokenCommandHandler : IRequestHandler<CreateTokenCommand, CreateTokenCommandResponse>
     {
-        private readonly IJwtTokenGenerator _jwtTokenGenerator;
+
         private readonly IUserRepository _userRepository;
         private LessonQueuePublisher _serviceBusSender;
         private readonly LessonTopicPublisher _lessonTopicPublisher;
         private readonly ITesteRepository _testeRepository;
         public CreateTokenCommandHandler(
-           IJwtTokenGenerator jwtTokenGenerator,
            IUserRepository userRepository,
            LessonQueuePublisher serviceBusSender,
            LessonTopicPublisher lessonTopicPublisher,
             ITesteRepository testeRepository
             )
         {
-            _jwtTokenGenerator = jwtTokenGenerator;
             _userRepository = userRepository;
             _serviceBusSender = serviceBusSender;
             _lessonTopicPublisher = lessonTopicPublisher;
@@ -53,8 +50,7 @@ namespace Projeto.Base.Domain.Commands.Authentication.CreateToken
             if (user == null)
                 throw new ApiHttpCustomException("Unauthorized", System.Net.HttpStatusCode.Unauthorized);
 
-            var token = _jwtTokenGenerator.GenerateToken(request.Login);
-            return new CreateTokenCommandResponse(token);
+            return new CreateTokenCommandResponse("123");
         }
     }
 }
