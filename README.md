@@ -9,7 +9,7 @@
  - Dapper
  - FluentValidation
  - IdentityServer 4
-
+ - Serilog
 ### O que há de novo
 
  - Arquitetura desacoplada utilizando conceitos ddd/cqrs 
@@ -17,21 +17,15 @@
  - Ideia de packages para ter apenas oque será usado ex: banco oracle / sql/cosmos - mensageria service bus
  - Testes de unidade xUnit com AAA (Arrange, Act, Assert)
  - Moq
- - Melhoria Serilog
+ 
  - Redis
  - Melhoria implementação httpRequest onde poderia dar problema de Http socket exception
- 
+ - Docker file
  ## Vantagens
  
  - Response padrão para todas futuras aplicações
  - Melhor visualização para possiveis manutenções
  - Menor acoplamento pensando em sistemas distribuidos além de utilizar redis ao invés de memoryCache
- 
- ## Implementações a serem feitas
- 
- - Serilog
- - Docker file
- 
  
 ## Conhecendo sua estrutura
 
